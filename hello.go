@@ -10,11 +10,12 @@ import (
 
 func main() {
 	fmt.Println("Starting up!")
-	now := time.Now().UTC()
 	r := gin.Default()
 	r.GET("/ping", func(c *gin.Context) {
+		now := time.Now().UTC()
 		c.JSON(http.StatusOK, gin.H{
-			"message": now,
+			"message": "Hello world!",
+			"time":    now,
 		})
 	})
 	r.Run() // listen and serve on 0.0.0.0:8080 (for windows "localhost:8080")
